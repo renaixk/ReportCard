@@ -1,0 +1,73 @@
+<div class="animated fadeIn">
+        <div class="row">
+      
+          <div class="col-md-12">
+            <div class="card ">
+      
+              <div class="card-block">
+                  
+                <div class="animated fadeIn">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-outline-primary">
+                        <div class="card-header">
+                          <strong>Reports</strong>
+                        </div>
+                    <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                              <tr>
+                                <th>Student <i *ngIf="sortedAsc; else sortedDescElseBlock" class="fa fa-sort-alpha-asc cursorLogout" aria-hidden="true" (click)="Sort()"></i>
+                                  <ng-template #sortedDescElseBlock>
+                                    <i class="fa fa-sort-alpha-desc cursorLogout" aria-hidden="true" (click)="Sort()"></i>
+                                  </ng-template>
+                                </th>
+                                <th>Class</th>
+                                <th class="text-center">Grade</th>
+                                <th class="text-center">Subject</th>
+                                <th class="text-center">Percentage</th>
+                                <th class="text-center">Comments</th>
+                              </tr>
+                            </thead>
+                            <tbody *ngIf="class; else studentElseBlock">
+                  
+                                    <tr *ngFor="let studentMark of studentMarks">
+                                      <td>{{studentMark.student.fullname}}</td>
+                                      <td>{{studentMark.sClass.Name}}</td>
+                                      <td>{{getGrade(studentMark.grade)}}</td>
+                                      <td class="text-center">{{getSubject(studentMark.subject)}}</td>
+                                      <td class="text-center">{{studentMark.percentage}}</td>  
+                                      <td class="text-center">{{studentMark.comments}}</td>                              
+                                    </tr>                            
+                                  
+                            </tbody>
+                                  <ng-template #studentElseBlock>
+                                        <tbody>                                      
+                                            <tr>
+                                                    <td>No Marks available for Student</td>
+                                                    <td>NA</td>
+                                                    <td class="text-center">NA</td>
+                                                    <td class="text-center">NA</td>  
+                                                    <td class="text-center">NA</td>  
+                                            </tr>                                    
+                                          
+                                        </tbody>
+                                </ng-template>
+                          </table>
+                    
+                      </div>
+    
+                      
+                    </div>
+      
+                  </div>
+      
+                </div>
+      
+              </div>
+      
+            </div>
+         
+          </div>
+      
+      
+        </div>

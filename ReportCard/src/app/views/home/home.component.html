@@ -1,0 +1,42 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+
+<div class="animated fadeIn" *ngIf='role == 0'>
+    <div class="row">
+            <div class="col-md-12">
+                    <div class="card ">
+              
+                      <div class="card-block">
+                            <h3>Please select a child from the drop down below to view their report</h3>
+                            <app-parent #parent [page]="myPageName"></app-parent>
+                        </div>
+                    </div>
+            </div>
+            
+    </div>
+</div>
+<div class="animated fadeIn" *ngIf='role == 3'>
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="card ">                  
+                          <div class="card-block">
+                                <h3>Below is the report for your class</h3>
+                                <app-educator #educator [page]="myPageName"></app-educator>
+                            </div>
+                        </div>
+                </div>
+                
+        </div>
+    </div>
+    <div class="animated fadeIn" *ngIf='role == 2'>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div class="card ">                  
+                              <div class="card-block">
+                                    <h3>Please select a teacher for whose class you want to see a report</h3>
+                                    <app-principal #principal [page]="myPageName"></app-principal>
+                                </div>
+                            </div>
+                    </div>
+                    
+            </div>
+        </div>
